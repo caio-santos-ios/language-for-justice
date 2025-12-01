@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+:root {
+  --primary-color: #17634E;
+  --secondary-color: #3D2316;
+
+  --header: #cecece;
+}
+
+html, body {
+  scroll-behavior: smooth;
+}
+
+.app-bg-primary {
+  background-color: var(--primary-color);
+}
+
+.app-text-primary {
+  color: var(--primary-color);
+}
+
+.app-text-secondary {
+  color: var(--secondary-color);
+}
+
+
+.header-app {
+  background-color: var(--header);
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  height: 8rem;
+}
+
+.section {
+  height: 100dvh;
+  padding-top: 10rem;
+}
+
+.input-global {
+  border: 0.08rem solid var(--secondary-color);
+  color: var(--secondary-color);
+  padding: .3rem;
+  border-radius: .5rem;
+  outline: none;
+}
