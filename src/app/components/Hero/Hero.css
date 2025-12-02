@@ -1,5 +1,5 @@
 .container-hero {
-  background-image: url("/assets/images/home/home1.jpg");
+  background-image: url("/assets/images/home/home.png");
   padding: 0 1rem;
   color: var(--text-gray);
 }

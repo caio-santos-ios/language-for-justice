@@ -23,7 +23,7 @@ export default function About() {
   return (
     <section id="section2" className="py-20 section">
       <div className="max-w-6xl mx-auto px-6 flex justify-center gap-4">
-        <img className="hidden md:block rounded-xl image-about" src={'/assets/images/home/home.webp'} alt="imagem"/>
+        {/* <img className="hidden md:block rounded-xl image-about" src={'/assets/images/home/home.png'} alt="imagem"/> */}
 
         <header>
           <h2 className="title-section-global">{title[language.code]}</h2>
