@@ -1,0 +1,25 @@
+.container-hero {
+  background-image: url("/assets/images/home/home1.jpg");
+  padding: 0 1rem;
+  color: var(--text-gray);
+}
+
+.btn-volunteer {
+  border: 0.08rem solid var(--secondary-color);
+  background-color: var(--secondary-color);
+  padding: .5rem;
+  border-radius: 1rem;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  max-width: 25rem;
+  margin-top: 3rem;
+  text-transform: uppercase;
+}
+
+.btn-volunteer:hover {
+  background-color: transparent;
+  border: 0.08rem solid var(--secondary-color);
+  /* color: var(--secondary-color); */
+  transition: 1s;
+}

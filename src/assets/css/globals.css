@@ -5,6 +5,7 @@
   --secondary-color: #3D2316;
 
   --header: #cecece;
+  --text-gray: #cecece;
 }
 
 html, body {
@@ -27,13 +28,13 @@ html, body {
 .header-app {
   background-color: var(--header);
   color: var(--primary-color);
-  font-size: 1.5rem;
   height: 8rem;
 }
 
 .section {
   height: 100dvh;
   padding-top: 10rem;
+  font-family: "Poppins", sans-serif;
 }
 
 .input-global {
@@ -42,4 +43,9 @@ html, body {
   padding: .3rem;
   border-radius: .5rem;
   outline: none;
+}
+
+.title-section-global {
+  font-size: 2.5rem;
+  font-weight: 700;
 }
