@@ -2,23 +2,24 @@
 
 import { languageAtom } from "@/src/jotai/language.jotai";
 import { useAtom } from "jotai";
-import { useState } from "react";
-import "./About.css";
+import { useEffect, useState } from "react";
+import { TLanguage } from "@/src/types/language.type";
+import { FiArrowLeftCircle } from "react-icons/fi";
+import "./AboutDetails.css";
 
-export default function About() {
-  const [language] = useAtom(languageAtom);
+export default function AboutDetails() {
+  const [language, setLanguage] = useAtom<TLanguage>(languageAtom)
   const [title] = useState<string[]>([
     'About Us', 
     'sobre Nosotros', 
     'Sobre Nós', 
   ]);
+  const [textBtn] = useState<string[]>([
+    'to go back', 
+    'Volver', 
+    'Voltar', 
+  ]);
 
-  const [textDetails] = useState<string[]>([
-    'Details',
-    'Detalles',
-    'Detalhes'
-  ])
-  
   const [paragraph1] = useState<string[]>([
     'Language for Justice (L4J) is a grassroots decolonial and countercolonial communication initiative, driven by and for interpreters, translators, and language professionals from marginalized communities. We firmly believe that language should be a bridge, not a barrier.', 
     'Lenguaje por la Justicia (L4J) es una iniciativa comunitaria de comunicación descolonial y contracolonial, impulsada por y para intérpretes, traductores y profesionales de la lengua de comunidades marginadas. Creemos firmemente que el lenguaje debe ser un puente, no una barrera.', 
@@ -65,29 +66,48 @@ export default function About() {
     'Image credit: Jaguatirika [Juliana Gomes, artistic illustration], the world map through the indigenous lens of the Global South. 🎨'
   ]);
 
-  return (
-    <section id="section2" className="py-20 section">
-      <div className="max-w-6xl mx-auto px-6 flex justify-center gap-4">
-        <div className="container-image hidden md:block">
-          <img className="hidden md:block rounded-xl image-about" src={'/assets/images/home/home.png'} alt="imagem"/>
-        </div>
+  useEffect(() => {
+    const stored: null | string = localStorage.getItem("language");
+    if(stored != null) {
+      setLanguage(JSON.parse(stored));
+    } else {
+      localStorage.setItem("language", JSON.stringify({code: 0, description: "en"}));
+    }
+  }, [])
 
+  return (
+    <section className="py-12">
+      <div className="container-image-mobile md:hidden">
+        <img className="rounded-xl image-about" src={'/assets/images/home/home.png'} alt="imagem"/>
+      </div>
+
+      <div className="max-w-6xl mx-auto px-6 flex justify-center gap-4">
+        <div className="container-image-desktop hidden md:block">
+          <img className="rounded-xl image-about" src={'/assets/images/home/home.png'} alt="imagem"/>
+        </div>
         <header>
           <h2 className="title-section-global">{title[language.code]}</h2>
           <p className="text-gray-700 leading-relaxed text-md font-medium mb-2">{paragraph1[language.code]}</p>
           <p className="text-gray-700 leading-relaxed text-md font-medium mb-2">{paragraph2[language.code]}</p>
-          <p className="text-gray-700 leading-relaxed text-md font-medium mb-2">{paragraph3[language.code]} <a className="text-blue-400 md:hidden" href="/details">Details</a></p>
+          <p className="text-gray-700 leading-relaxed text-md font-medium mb-2">{paragraph3[language.code]}</p>
         </header>
       </div>
 
       <div className="max-w-6xl mx-auto px-6 flex justify-center gap-4">
         <header>
-          <p className="text-gray-700 leading-relaxed text-md font-medium mb-2 hidden md:block">{paragraph4[language.code]}</p>
-          <p className="text-gray-700 leading-relaxed text-md font-medium mb-2 hidden md:block">{paragraph5[language.code]}</p>
-          <p className="text-gray-700 leading-relaxed text-md font-medium mb-3 hidden md:block">{paragraph6[language.code]}</p>
-          <p className="text-gray-700 leading-relaxed text-md font-medium mb-3 hidden md:block">{paragraph7[language.code]}</p>
-          <p className="text-gray-700 leading-relaxed text-md font-medium mb-3 hidden md:block">{paragraph8[language.code]}</p>
-          <p className="text-gray-700 leading-relaxed text-md font-medium mb-3 hidden md:block">{paragraph9[language.code]}</p>
+          <p className="text-gray-700 leading-relaxed text-md font-medium mb-2">{paragraph4[language.code]}</p>
+          <p className="text-gray-700 leading-relaxed text-md font-medium mb-2">{paragraph5[language.code]}</p>
+          <p className="text-gray-700 leading-relaxed text-md font-medium mb-3">{paragraph6[language.code]}</p>
+          <p className="text-gray-700 leading-relaxed text-md font-medium mb-3">{paragraph7[language.code]}</p>
+          <p className="text-gray-700 leading-relaxed text-md font-medium mb-3">{paragraph8[language.code]}</p>
+          <p className="text-gray-700 leading-relaxed text-md font-medium mb-3">{paragraph9[language.code]}</p>
+
+          <a href="/" className="cursor-pointer">
+            <button className="btn-back">
+              <div className="btn-description"><FiArrowLeftCircle/></div>
+              <div className="btn-description">{textBtn[language.code]}</div> 
+            </button>
+          </a>
         </header>
       </div>
     </section>

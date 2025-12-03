@@ -24,8 +24,19 @@ export default function Header() {
       code: parseInt(code),
       description
     };
+
     setLanguage(newLanguage);
+    localStorage.setItem("language", JSON.stringify(newLanguage));
   }, [languageHeader])
+  
+  useEffect(() => {
+    const stored: null | string = localStorage.getItem("language");
+    if(stored != null) {
+      setLanguage(JSON.parse(stored));
+    } else {
+      localStorage.setItem("language", JSON.stringify({code: 0, description: "en"}));
+    }
+  }, [])
 
   return (
     <>
@@ -39,7 +50,7 @@ export default function Header() {
             <FiAlignRight fontSize={30} />
           </div>
 
-          <ul className={`md:flex gap-8 font-medium transition-all ${open ? "list-menu-open" : "list-menu"}`}>
+          <ul className={`md:flex gap-8 font-medium transition-all menu ${open ? "list-menu-open" : "list-menu"}`}>
             <div onClick={() => setOpen(!open)} className="md:hidden mb-4">
               <FiX fontSize={30} />
             </div>

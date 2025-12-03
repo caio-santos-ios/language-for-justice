@@ -1,0 +1,25 @@
+.container-image-mobile {
+    padding: 0 2rem;
+}
+
+.container-image-desktop {
+    width: 100rem;
+    height: 18rem;
+}
+
+.btn-back {
+    background-color: var(--primary-color);
+    color: var(--text-gray);
+    font-weight: 500;
+    border-radius: .5em;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: .5 1rem;
+}
+
+.btn-description {
+    height: 2rem;
+    display: flex;
+    align-items: center;
+}

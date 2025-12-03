@@ -8,28 +8,28 @@ import { useState } from "react";
 export default function Footer() {
   const [redes] = useState<any[]>([
     {
-      img: 'https://res.cloudinary.com/dia2yiu6k/image/upload/v1764278823/GERAL/Instagram--Streamline-Font-Awesome_xda25v.png',
-      uri: '',
+      img: 'https://res.cloudinary.com/dia2yiu6k/image/upload/v1764278821/GERAL/Linkedin-In--Streamline-Font-Awesome_1_fqn6oi.png',
+      uri: 'https://www.linkedin.com/company/language-for-justice/',
       alt: 'icone do instagram',
       width: 20,
       height: 20
     },
     {
-      img: 'https://res.cloudinary.com/dia2yiu6k/image/upload/v1764278823/GERAL/Youtube--Streamline-Font-Awesome_od16tm.png',
-      uri: '',
-      alt: 'icone do youtube',
-      width: 25,
+      img: 'https://res.cloudinary.com/dia2yiu6k/image/upload/v1764278820/GERAL/linktree-white-icon_ebdcsv.png',
+      uri: 'https://linktr.ee/languageforjustice',
+      alt: 'icone do linktree',
+      width: 20,
       height: 20
     }
   ])
 
   return (
-    <footer className="text-white footer">
+    <footer id="section4" className="text-white footer">
       <div className="container-redes">
         {
           redes.map((x: any) => {
             return (
-              <a href={x.uri}>
+              <a target="_blank" key={x.img} href={x.uri}>
                 <Image width={x.width} height={x.height} alt={x.alt} src={x.img}/>
               </a>
             )

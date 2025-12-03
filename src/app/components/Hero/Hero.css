@@ -20,6 +20,5 @@
 .btn-volunteer:hover {
   background-color: transparent;
   border: 0.08rem solid var(--secondary-color);
-  /* color: var(--secondary-color); */
   transition: 1s;
 }
