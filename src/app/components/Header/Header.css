@@ -1,3 +1,15 @@
+.header-app {
+  /* background-color: var(--header); */
+  color: var(--text-primary);
+  height: 8rem;
+  background-color: transparent;
+}
+
+.header-app.scrolled {
+  background-color: var(--header);
+  backdrop-filter: blur(10px);     
+}
+
 .language {
   outline: none;
   border: 0.08rem solid var(--primary-color);

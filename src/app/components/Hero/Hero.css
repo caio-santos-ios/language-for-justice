@@ -1,24 +1,53 @@
 .container-hero {
-  background-image: url("/assets/images/home/home.png");
+  position: relative;
+  background-image: url("/assets/images/home/home.jpeg");
+  background-size: cover;
+  background-position: center;
   padding: 0 1rem;
-  color: var(--text-gray);
+  color: var(--text-primary);
+  z-index: 1;
+}
+
+.container-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5); 
+  z-index: -1; 
+}
+
+.title-here {
+  font-family: 'Yeseva One', Sans-Serif;
+}
+
+.btn-hero {
+  padding: 1rem 1.5rem;
+  border-radius: .5rem;
+  cursor: pointer;
+  font-weight: 300;
+  font-size: 1rem;
 }
 
 .btn-volunteer {
-  border: 0.08rem solid var(--secondary-color);
-  background-color: var(--secondary-color);
-  padding: .5rem;
-  border-radius: 1rem;
-  font-weight: 700;
-  font-size: 1rem;
-  cursor: pointer;
-  max-width: 25rem;
-  margin-top: 3rem;
-  text-transform: uppercase;
+  background-color: #ffcd05;
+  color: #000;
+}  
+
+
+.btn-dicover {
+  background-color: #111518;
 }
 
-.btn-volunteer:hover {
-  background-color: transparent;
-  border: 0.08rem solid var(--secondary-color);
-  transition: 1s;
+.btn-dicover:hover {
+  background-color: #000;
+}
+
+@media (min-width: 768px) {
+  .btn-hero {
+    padding: 1rem 1.5rem;
+    border-radius: .5rem;
+    cursor: pointer;
+    font-weight: 300;
+    font-size: 1.8rem;
+  }
 }

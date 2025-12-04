@@ -9,7 +9,7 @@
 
 .btn-back {
     background-color: var(--primary-color);
-    color: var(--text-gray);
+    color: var(--text-primary);
     font-weight: 500;
     border-radius: .5em;
     display: flex;

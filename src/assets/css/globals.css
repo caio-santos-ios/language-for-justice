@@ -5,11 +5,12 @@
   --secondary-color: #3D2316;
 
   --header: #cecece;
-  --text-gray: #cecece;
+  --text-primary: #fff;
 }
 
 html, body {
   scroll-behavior: smooth;
+  font-family: BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 .app-bg-primary {
@@ -24,17 +25,11 @@ html, body {
   color: var(--secondary-color);
 }
 
-
-.header-app {
-  background-color: var(--header);
-  color: var(--primary-color);
-  height: 8rem;
-}
-
 .section {
   height: 100dvh;
   padding-top: 10rem;
   font-family: "Poppins", sans-serif;
+  background-color: #cecece;
 }
 
 .input-global {

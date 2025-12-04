@@ -65,9 +65,55 @@ export default function About() {
     'Image credit: Jaguatirika [Juliana Gomes, artistic illustration], the world map through the indigenous lens of the Global South. 🎨'
   ]);
 
+  const [projects, setProject] = useState<any[]>([
+    {
+      icon: "food",
+      title: "Equitable Access",
+      description: "Ensuring everyone can engage in language that feels authentic to them (choice of language, modality, translation/interpretation)."
+    },
+    {
+      icon: "school",
+      title: "Education",
+      description: "Valuing people’s native languages, dialects, and communication styles as part of their identity, not as “barriers.”"
+    },
+    {
+      icon: "medical",
+      title: "Power Redistribution",
+      description: "Challenging dominant-language norms and hierarchies; shifting how decisions about language are made so marginalized voices co‑lead."
+    },
+    {
+      icon: "water",
+      title: "Capacity Building",
+      description: "Investing in interpretation / translation / multilingual communication infrastructure; training, budget, tools."
+    },
+    {
+      icon: "love",
+      title: "Inclusive Participation",
+      description: "Designing meetings, materials, processes so that people with different language preferences and needs can fully participate."
+    },
+    {
+      icon: "tranvel",
+      title: "Continuous Learning & Accountability",
+      description: "Reflecting on language practices, iterating, measuring impact, and holding ourselves responsible for staying rooted in justice, not convenience."
+    },
+  ])
+
   return (
-    <section id="section2" className="py-20 section">
-      <div className="max-w-6xl mx-auto px-6 flex justify-center gap-4">
+    <section id="section2" className="py-20 section section-project">
+      <ul className="list-project grid md:grid-cols-3">
+        {
+          projects.map((x: any) => {
+            return (
+              <li key={x.icon} className="card-project">
+                <img className="icon-card" src={`/assets/icons/projects/${x.icon}.svg`} alt="imagem"/>
+                <h2 className="title-project">{x.title}</h2>
+                <p className="description-project">{x.description}</p>
+              </li>
+            )
+          })
+        }
+      </ul>
+      {/* <div className="max-w-6xl mx-auto px-6 flex justify-center gap-4">
         <div className="container-image hidden md:block">
           <img className="hidden md:block rounded-xl image-about" src={'/assets/images/home/home.png'} alt="imagem"/>
         </div>
@@ -89,7 +135,7 @@ export default function About() {
           <p className="text-gray-700 leading-relaxed text-md font-medium mb-3 hidden md:block">{paragraph8[language.code]}</p>
           <p className="text-gray-700 leading-relaxed text-md font-medium mb-3 hidden md:block">{paragraph9[language.code]}</p>
         </header>
-      </div>
+      </div> */}
     </section>
   );
 }

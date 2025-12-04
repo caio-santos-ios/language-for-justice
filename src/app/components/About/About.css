@@ -1,4 +1,100 @@
+.section-project {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
 .container-image {
     width: 100rem;
     height: 18rem;
+}
+
+.list-project {
+    width: 80%;
+    max-width: 100rem;
+    background-color: #fff;
+    position: absolute;
+    top: -5rem;
+    z-index: 1;
+    margin: auto 0;
+    padding: 1rem;
+    border-radius: .5rem;
+}
+
+.card-project {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    text-align: center;
+    gap: 1.5rem;
+    position: relative;
+}
+
+.icon-card {
+    width: 2rem;
+    height: 2rem;
+}
+
+.title-project {
+    font-size: 1.5rem;
+    font-family: 'Yeseva One', Sans-Serif;
+}
+
+.description-project {
+    font-size: 1rem;
+    color: #687279;
+}
+
+@media (min-width: 768px) {
+    .card-project {
+        height: 25rem;
+        justify-content: flex-start;
+    }
+
+    .card-project:nth-child(-n + 3) {
+        padding: 3rem;
+        border-bottom: .05rem solid #cecece;
+    }
+
+    .card-project:nth-child(n - 1)::before {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 20%;      
+        height: 70%;  
+        width: 2px;    
+        background: #cecece;
+    }
+   
+    .card-project:nth-child(3)::before {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 0;      
+        height: 0;  
+        width: 2px;    
+        background: #cecece;
+    }
+    
+    .card-project:nth-child(6)::before {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 0;      
+        height: 0;  
+        width: 2px;    
+        background: #cecece;
+    }
+
+    .icon-card {
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .description-project {
+        font-size: 1.2rem;
+    }
+
 }

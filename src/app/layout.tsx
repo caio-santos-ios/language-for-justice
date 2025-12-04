@@ -25,6 +25,7 @@ export default function RootLayout({
   return (
     <html lang="PT-br">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap" rel="stylesheet"></link>
         {children}
       </body>
     </html>

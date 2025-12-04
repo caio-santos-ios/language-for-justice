@@ -16,7 +16,8 @@ export default function Header() {
   const [menu] = useAtom<TMenu[]>(menuAtom);
   const [language, setLanguage] = useAtom<TLanguage>(languageAtom)
   const [languageHeader, setLanguageHeader] = useState<string>("0;en");
-    
+  const [scrolled, setScrolled] = useState(false);
+
   useEffect(() => {
     const [code, description] = languageHeader.split(";");
     
@@ -27,7 +28,7 @@ export default function Header() {
 
     setLanguage(newLanguage);
     localStorage.setItem("language", JSON.stringify(newLanguage));
-  }, [languageHeader])
+  }, [languageHeader]);
   
   useEffect(() => {
     const stored: null | string = localStorage.getItem("language");
@@ -36,11 +37,20 @@ export default function Header() {
     } else {
       localStorage.setItem("language", JSON.stringify({code: 0, description: "en"}));
     }
-  }, [])
+  }, []);
+
+  useEffect(() => {
+    const onScroll = () => {
+      setScrolled(window.scrollY > 100);
+    };
+
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
     <>
-      <header className="w-full fixed top-0 left-0 bg-white shadow z-50 header-app text-2xl md:text-xl">
+      <header className={`w-full fixed top-0 left-0 shadow z-50 header-app text-2xl md:text-xl ${scrolled ? "scrolled" : ""}`}>
         <nav className="max-w-7xl mx-auto flex justify-between items-center p-4">
           <Link href="/">
             <Logo width={90} height={90}/>
